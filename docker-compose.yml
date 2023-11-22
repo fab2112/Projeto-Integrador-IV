@@ -1,0 +1,42 @@
+# docker-compose.yml
+version: '3.7'
+
+services:    
+  dashboard:
+    container_name: dashboard_ca_pi
+    build: .
+    image: dashboard_ca_pi
+    restart: always
+    volumes:
+      - ./downloads:/downloads
+    ports:
+      - "8085:8085"
+    secrets:
+      - dash_username
+      - dash_password
+
+  selenium_service:
+    container_name: etl_ca_pi
+    build: ./etl_ca
+    image: etl_ca_pi
+    restart: always
+    volumes:
+      - ./downloads:/downloads
+    secrets:
+      - ca_username
+      - ca_password
+
+secrets:
+  ca_username:
+    file: ./secrets/ca_username.txt
+  ca_password:
+    file: ./secrets/ca_password.txt
+  dash_username:
+    file: ./secrets/dash_username.txt
+  dash_password:
+    file: ./secrets/dash_password.txt
+
+      
+      
+
+
