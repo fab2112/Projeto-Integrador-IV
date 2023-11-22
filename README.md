@@ -81,7 +81,7 @@ Amazoon AWS
 
 <br />
 <h3 align="center">
-  <img src="assets/pipeline_bi.png" width="700">
+  <img src="assets/pipeline_bi.png" width="500">
 </h3>
 
 <br />
